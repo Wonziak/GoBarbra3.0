@@ -2,7 +2,7 @@ import uvicorn
 from gtts import gTTS
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
-from app.routers import songs
+from backend.app.routers import songs
 from starlette.responses import RedirectResponse
 
 app = FastAPI()
@@ -17,7 +17,7 @@ async def redirect():
 register_tortoise(
     app,
     db_url="sqlite://store.db",
-    modules={'models': ['app.models.song']},
+    modules={'models': ['backend.app.models.song']},
     generate_schemas=True,
     add_exception_handlers=True
 )

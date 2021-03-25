@@ -1,6 +1,6 @@
-from app.models.song import Song, SongIn_Pydantic, Song_Pydantic
-from app.services.create_song_router import song_generator
-from app.services.get_song_router import get_song_from_id
+from backend.app.models.song import Song, SongIn_Pydantic, Song_Pydantic
+from backend.app.services.create_song_router import song_generator
+from backend.app.services.get_song_router import get_song_from_id
 from tortoise.contrib.pydantic import pydantic_queryset_creator
 from fastapi import HTTPException, APIRouter
 from tortoise.contrib.fastapi import HTTPNotFoundError

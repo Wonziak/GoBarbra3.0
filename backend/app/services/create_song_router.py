@@ -1,7 +1,7 @@
 from gtts import gTTS
 from fastapi import HTTPException
 import subprocess
-from app.models.song import Song, Song_Pydantic
+from backend.app.models.song import Song, Song_Pydantic
 
 
 async def song_generator(song_id: int):

@@ -1,6 +1,6 @@
 from fastapi.responses import StreamingResponse
 from fastapi import HTTPException
-from app.models.song import Song, Song_Pydantic
+from backend.app.models.song import Song, Song_Pydantic
 
 
 async def get_song_from_id(song_id: int):
