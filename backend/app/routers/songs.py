@@ -1,6 +1,6 @@
 from backend.app.models.song import Song, SongIn_Pydantic, Song_Pydantic
-from backend.app.services.create_song_router import song_generator
-from backend.app.services.get_song_router import get_song_from_id
+from backend.app.services.create_song import song_generator
+from backend.app.services.get_song import get_song_from_id
 from tortoise.contrib.pydantic import pydantic_queryset_creator
 from fastapi import HTTPException, APIRouter
 from tortoise.contrib.fastapi import HTTPNotFoundError
@@ -25,7 +25,7 @@ async def create_song_from_data_in_db(song_id: int):
 
 
 @router.put('/song/{song_id}', response_model=Song_Pydantic, responses={404: {'model': HTTPNotFoundError}})
-async def update_song_in_db_and_create(song_id: int, song: SongIn_Pydantic):
+async def update_song_in_db(song_id: int, song: SongIn_Pydantic):
     await Song.filter(id=song_id).update(**song.dict(exclude_unset=True))
     return await Song_Pydantic.from_queryset_single(Song.get(id=song_id))
 

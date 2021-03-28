@@ -1,13 +1,12 @@
 import uvicorn
-from gtts import gTTS
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from tortoise.contrib.fastapi import register_tortoise
-from backend.app.routers import songs
+from backend.app.routers import songs, users
 from starlette.responses import RedirectResponse
 
 app = FastAPI()
 app.include_router(songs.router)
-
+app.include_router(users.router)
 
 @app.get('/') #tylko dla wygody, żeby odrazu na swaggera weszło
 async def redirect():
@@ -16,8 +15,8 @@ async def redirect():
 
 register_tortoise(
     app,
-    db_url="sqlite://store.db",
-    modules={'models': ['backend.app.models.song']},
+    db_url="sqlite://db.sqlite3",
+    modules={'models': ['backend.app.models.song', 'backend.app.models.user']},
     generate_schemas=True,
     add_exception_handlers=True
 )
