@@ -1,16 +1,16 @@
 import React from 'react';
 import { AccountCircle as AccountCircleIcon } from '@material-ui/icons';
+import {Link} from 'react-router-dom'
 import {
     Avatar,
     Grid,
     Container,
-    CssBaseline,
     Button,
-    Link,
     Typography,
 } from '@material-ui/core';
-import { CssTextField, useStyles } from './styles';
+import { useStyles } from './styles';
 import { useForm } from 'react-hook-form';
+import TextField from "@material-ui/core/TextField";
 
 const RegisterForm = () => {
     const classes = useStyles();
@@ -41,7 +41,8 @@ const RegisterForm = () => {
                     noValidate
                     onSubmit={handleSubmit(onSubmit)}
                 >
-                    <CssTextField
+                    <TextField
+
                         name='email'
                         label='Email Address'
                         variant='outlined'
@@ -55,14 +56,14 @@ const RegisterForm = () => {
                         })}
                         autoComplete='email'
                         error={!!errors.email}
-                        className={classes.margin}
+                        className={classes.textField}
                         fullWidth
                         autoFocus
                     />
                     {errors.email && (
                         <span className={classes.error}>{errors.email.message}</span>
                     )}
-                    <CssTextField
+                    <TextField
                         name='password'
                         label='Password'
                         type='password'
@@ -75,6 +76,7 @@ const RegisterForm = () => {
                                 message: 'Your password must be greater than 6 characters',
                             },
                         })}
+                        className={classes.textField}
                         error={!!errors.password}
                         fullWidth
                         autoComplete='current-password'
@@ -85,7 +87,7 @@ const RegisterForm = () => {
 
                     <Grid container>
                         <Grid item xs>
-                            <Link href='#' variant='body2' className={classes.link}>
+                            <Link to='/' variant='body2' className={classes.link}>
                                 Forgot password?
                             </Link>
                         </Grid>
@@ -102,7 +104,7 @@ const RegisterForm = () => {
                     </Button>
                     <Grid container>
                         <Grid item>
-                            <Link href="/login" variant='body2' className={classes.link}>
+                            <Link to="/login" variant='body2' className={classes.link}>
                                 {'Have an account? Sign in.'}
                             </Link>
                         </Grid>
@@ -114,4 +116,4 @@ const RegisterForm = () => {
 };
 
 
-export default RegisterForm;
+export {RegisterForm};

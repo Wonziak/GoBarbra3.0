@@ -1,6 +1,6 @@
 import React from 'react';
 import { AccountCircle as AccountCircleIcon } from '@material-ui/icons';
-
+import {Link} from 'react-router-dom'
 import {
     Avatar,
     Grid,
@@ -8,12 +8,12 @@ import {
     CssBaseline,
     FormControlLabel,
     Button,
-    Link,
     Checkbox,
     Typography,
 } from '@material-ui/core';
-import { CssTextField, useStyles } from './styles';
+import { useStyles } from './styles';
 import { useForm } from 'react-hook-form';
+import TextField from "@material-ui/core/TextField";
 
 const LoginForm = () => {
     const classes = useStyles();
@@ -44,7 +44,7 @@ const LoginForm = () => {
                     noValidate
                     onSubmit={handleSubmit(onSubmit)}
                 >
-                    <CssTextField
+                    <TextField
                         name='email'
                         label='Email Address'
                         variant='outlined'
@@ -58,14 +58,14 @@ const LoginForm = () => {
                         })}
                         autoComplete='email'
                         error={!!errors.email}
-                        className={classes.margin}
+                        className={classes.textField}
                         fullWidth
                         autoFocus
                     />
                     {errors.email && (
                         <span className={classes.error}>{errors.email.message}</span>
                     )}
-                    <CssTextField
+                    <TextField
                         name='password'
                         label='Password'
                         type='password'
@@ -78,6 +78,7 @@ const LoginForm = () => {
                                 message: 'Your password must be greater than 6 characters',
                             },
                         })}
+                        className={classes.textField}
                         error={!!errors.password}
                         fullWidth
                         autoComplete='current-password'
@@ -88,7 +89,7 @@ const LoginForm = () => {
 
                     <Grid container>
                         <Grid item xs>
-                            <Link href='#' variant='body2' className={classes.link}>
+                            <Link to='/' variant='body2' className={classes.link}>
                                 Forgot password?
                             </Link>
                         </Grid>
@@ -117,7 +118,7 @@ const LoginForm = () => {
                     </Button>
                     <Grid container>
                         <Grid item>
-                            <Link href="/register" variant='body2' className={classes.link}>
+                            <Link to="/register" variant='body2' className={classes.link}>
                                 {'New to this platform? Create an Acount.'}
                             </Link>
                         </Grid>
@@ -128,4 +129,4 @@ const LoginForm = () => {
     );
 };
 
-export default LoginForm;
+export {LoginForm};
