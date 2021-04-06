@@ -1,5 +1,4 @@
 import jwt
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi import HTTPException, status
 from backend.app.models.user import User, User_Pydantic
 from datetime import datetime, timedelta
@@ -19,7 +18,7 @@ async def authenticate_and_generate_token(username, password):
         'iat': datetime.utcnow()
     }
     token = jwt.encode(payload, JWT_SECRET)
-    return {'access token': token, 'token_type': 'bearer'}
+    return {'token': token}
 
 
 async def authenticate_user(username: str, password: str):
@@ -33,4 +32,12 @@ async def authenticate_user(username: str, password: str):
     except Exception:
         return False
 
-# async def get_user_from_header(*,authorization: str = Header(None)) -> User:
+
+async def decode_token(token: str):
+    try:
+        payload = jwt.decode(token, JWT_SECRET, algorithms=['HS256'])
+        if not payload:
+            raise Exception
+        return payload
+    except Exception:
+        return False
