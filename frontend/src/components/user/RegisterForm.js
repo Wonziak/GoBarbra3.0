@@ -11,6 +11,7 @@ import {
 import { useStyles } from './styles';
 import { useForm } from 'react-hook-form';
 import TextField from "@material-ui/core/TextField";
+import * as routes from '../../routing/routes'
 
 const RegisterForm = () => {
     const classes = useStyles();
@@ -87,7 +88,7 @@ const RegisterForm = () => {
 
                     <Grid container>
                         <Grid item xs>
-                            <Link to='/' variant='body2' className={classes.link}>
+                            <Link to={routes.HOME} variant='body2' className={classes.link}>
                                 Forgot password?
                             </Link>
                         </Grid>
@@ -104,7 +105,7 @@ const RegisterForm = () => {
                     </Button>
                     <Grid container>
                         <Grid item>
-                            <Link to="/login" variant='body2' className={classes.link}>
+                            <Link to={routes.LOGIN} variant='body2' className={classes.link}>
                                 {'Have an account? Sign in.'}
                             </Link>
                         </Grid>
