@@ -7,6 +7,7 @@ import {View} from '../view/View'
 import {LoginForm} from "../components/user/LoginForm";
 import {RegisterForm} from "../components/user/RegisterForm";
 import * as routes from "./routes"
+import {ErrorPage} from "../pages/ErrorPage";
 export const Routing = () => {
     return (
         <>
@@ -20,6 +21,10 @@ export const Routing = () => {
                 <Route path={routes.REGISTER}>
                     <View children={<RegisterForm/>}/>
                 </Route>
+                <Route >
+                    <View children={<ErrorPage/>}/>
+                </Route>
+
             </Switch>
         </>
     )

@@ -5,7 +5,11 @@ const drawerWidth = 240;
 
 export const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
+        display: "flex",
+        height: '100vh',
+        backgroundImage: `url(${background})`,
+        background: "#fff",
+        backgroundSize: "cover"
 
     },
     menuButton: {
@@ -15,17 +19,37 @@ export const useStyles = makeStyles((theme) => ({
         display: 'none',
     },
     title: {
+        textAlign: "start",
         flexGrow: 1,
     },
-
+    loginButton: {
+        textAlign: "end",
+        flexGrow: 1,
+    },
+    appBar: {
+        zIndex: theme.zIndex.drawer + 1,
+        transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+    },
+    appBarShift: {
+        marginLeft: drawerWidth,
+        width: `calc(100% - ${drawerWidth}px)`,
+        transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    },
     toolBar: {
         background: emeraldGreenColor,
     },
-    wallpaper:{
-        height: '100vh',
-        backgroundImage: `url(${background})`,
-        background: "#fff",
-        backgroundSize: "cover"
+    logo:{
+        display: "block",
+        marginRight: "20px",
+
+        height: "59px",
+        maxWidth: "auto",
 
     },
     titleLink: {
@@ -35,6 +59,7 @@ export const useStyles = makeStyles((theme) => ({
             color: "#fff"
         },
     },
+
     drawer: {
         width: drawerWidth,
         flexShrink: 0,

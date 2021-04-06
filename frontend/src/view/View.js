@@ -21,7 +21,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-
+import CssBaseline from "@material-ui/core/CssBaseline";
+import logoImage from '../img/Barbra-logo.png';
+import {LoggedMenu, LogoutMenu} from './menu'
 export const View = ({children}) =>{
 
     const theme = useTheme();
@@ -37,8 +39,12 @@ export const View = ({children}) =>{
     };
 
     return(
-        <Card className={classes.wallpaper}>
-            <AppBar position="static">
+        <div className={classes.root}>
+            <CssBaseline />
+            <AppBar position="fixed"
+                    className={clsx(classes.appBar, {
+                        [classes.appBarShift]: open,
+                    })}>
                 <Toolbar className={classes.toolBar}>
                     <IconButton onClick={handleDrawerOpen} edge="start"
                                 className={clsx(classes.menuButton, {
@@ -47,15 +53,18 @@ export const View = ({children}) =>{
                                 color="inherit" aria-label="menu">
                         <MenuIcon />
                     </IconButton>
-
+                    {
+                        !open&&
                         <Typography variant="h5" className={classes.title}>
                             <Link to={routes.HOME} className={classes.titleLink}>
-                            GO BARBRA V3
+                                GO BARBRA V3
                             </Link>
                         </Typography>
+                    }
 
-                    <Link to={routes.LOGIN} className={classes.titleLink}>
-                    <Button color="inherit">Login</Button>
+
+                    <Link to={routes.LOGIN} className={clsx(classes.titleLink,classes.loginButton)}>
+                    <Button color="inherit" >Login</Button>
                     </Link>
                 </Toolbar>
             </AppBar>
@@ -73,30 +82,27 @@ export const View = ({children}) =>{
                 }}
             >
                 <div className={classes.toolbar}>
+                        <Link to={routes.HOME}>
+                            <img src={logoImage} className={classes.logo}/>
+                        </Link>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                     </IconButton>
                 </div>
-                <Divider />
-                <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
+                <LogoutMenu/>
+                {true&&<>
+                    <Divider />
+                    <LoggedMenu/>
+                    </>
+                }
+
+
             </Drawer>
+            <main className={classes.content}>
+                <div className={classes.toolbar} />
                 {children}
-        </Card>
+            </main>
+
+        </div>
     )
 }
