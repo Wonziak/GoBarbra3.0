@@ -2,10 +2,13 @@ from backend.app.models.song import Song, SongIn_Pydantic, Song_Pydantic
 from backend.app.services.create_song import song_generator
 from backend.app.services.get_song import get_song_from_id
 from tortoise.contrib.pydantic import pydantic_queryset_creator
-from fastapi import HTTPException, APIRouter
+from fastapi import HTTPException, APIRouter, Depends
 from tortoise.contrib.fastapi import HTTPNotFoundError
+from fastapi.security import OAuth2PasswordBearer
 
-router = APIRouter()
+router = APIRouter(tags=['Song'])
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 
 @router.get('/song/{song_id}')
@@ -14,7 +17,7 @@ async def get_song(song_id: int):
 
 
 @router.post('/song')
-async def create_song_new(song: SongIn_Pydantic):
+async def create_song_new(song: SongIn_Pydantic, token: str = Depends(oauth2_scheme)):
     obj = await Song.create(**song.dict(exclude_unset=True))
     await song_generator(obj.id)
 

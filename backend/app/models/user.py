@@ -9,10 +9,6 @@ class User(models.Model):
     password_hash = fields.CharField(255)
     email = fields.CharField(128)
 
-    @classmethod
-    async def get_user(cls, username):
-        return cls.get(username=username)
-
     def verify_password(self, password):
         return bcrypt.verify(password, self.password_hash)
 
