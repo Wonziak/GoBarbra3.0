@@ -1,35 +1,30 @@
-import React, {useState} from "react";
+import React, { useState} from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
 import {Link} from "react-router-dom";
 import {useStyles} from "./styles";
 import * as routes from '../routing/routes'
 import {useTheme} from "@material-ui/core";
 import clsx from "clsx";
 import Divider from "@material-ui/core/Divider";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Drawer from "@material-ui/core/Drawer";
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import logoImage from '../img/Barbra-logo.png';
 import {LoggedMenu, LogoutMenu} from './menu'
+import Cookies from 'js-cookie';
+import {useHistory} from "react-router-dom";
 export const View = ({children}) =>{
 
     const theme = useTheme();
     const classes = useStyles();
     const [open, setOpen] = useState(false);
-
+    const history = useHistory();
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -62,10 +57,16 @@ export const View = ({children}) =>{
                         </Typography>
                     }
 
+                    {Cookies.get('jwt2')?
+                        <Button color="inherit" onClick={()=>{
+                            Cookies.remove("jwt2");
+                            history.push("/");
+                        }}>Logout</Button>:
+                        <Link to={routes.LOGIN} className={clsx(classes.titleLink,classes.loginButton)}>
+                            <Button color="inherit" >Login</Button>
+                        </Link>
 
-                    <Link to={routes.LOGIN} className={clsx(classes.titleLink,classes.loginButton)}>
-                    <Button color="inherit" >Login</Button>
-                    </Link>
+                    }
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -83,14 +84,14 @@ export const View = ({children}) =>{
             >
                 <div className={classes.toolbar}>
                         <Link to={routes.HOME}>
-                            <img src={logoImage} className={classes.logo}/>
+                            <img src={logoImage} className={classes.logo} alt=""/>
                         </Link>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                     </IconButton>
                 </div>
                 <LogoutMenu/>
-                {true&&<>
+                {Cookies.get('jwt2')&&<>
                     <Divider />
                     <LoggedMenu/>
                     </>
