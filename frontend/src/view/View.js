@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, {useContext, useState} from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -17,10 +17,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import logoImage from '../img/Barbra-logo.png';
 import {LoggedMenu, LogoutMenu} from './menu'
-import Cookies from 'js-cookie';
 import {useHistory} from "react-router-dom";
+import {UserContext} from "../components/user/userProvider";
 export const View = ({children}) =>{
-
+    const {user, logout} = useContext(UserContext);
     const theme = useTheme();
     const classes = useStyles();
     const [open, setOpen] = useState(false);
@@ -57,11 +57,12 @@ export const View = ({children}) =>{
                         </Typography>
                     }
 
-                    {Cookies.get('jwt2')?
+                    {user.auth?
+                        <Link to={routes.HOME} className={clsx(classes.titleLink,classes.loginButton)}>
                         <Button color="inherit" onClick={()=>{
-                            Cookies.remove("jwt2");
-                            history.push("/");
-                        }}>Logout</Button>:
+                            logout();
+                        }}>Logout</Button>
+                        </Link>:
                         <Link to={routes.LOGIN} className={clsx(classes.titleLink,classes.loginButton)}>
                             <Button color="inherit" >Login</Button>
                         </Link>
@@ -91,12 +92,11 @@ export const View = ({children}) =>{
                     </IconButton>
                 </div>
                 <LogoutMenu/>
-                {Cookies.get('jwt2')&&<>
+                {user.auth&&<>
                     <Divider />
                     <LoggedMenu/>
                     </>
                 }
-
 
             </Drawer>
             <main className={classes.content}>

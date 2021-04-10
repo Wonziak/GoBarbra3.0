@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { AccountCircle as AccountCircleIcon } from '@material-ui/icons';
 import {Link, useHistory} from 'react-router-dom'
 import {
@@ -18,6 +18,8 @@ import Snackbar from "@material-ui/core/Snackbar";
 import Slide from '@material-ui/core/Slide';
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from '@material-ui/icons/Close';
+import {UserContext} from "./userProvider";
+import Cookies from "js-cookie";
 
 function transition(props) {
     return <Slide {...props} direction="right"
@@ -26,9 +28,10 @@ function transition(props) {
     />;
 }
 const LoginForm = () => {
+    const {login} = useContext(UserContext)
     const classes = useStyles();
     const history = useHistory()
-    const { register, handleSubmit, errors } = useForm({
+    const { register, handleSubmit, errors, reset} = useForm({
         mode: 'onChange',
         reValidateMode: 'onChange',
         defaultValues: {
@@ -43,13 +46,32 @@ const LoginForm = () => {
     };
     const onSubmit = (data) => {
         setLogging(true)
-        API.post('//login', data)
+
+        const details = {
+            'username': data.username,
+            'password': data.password,
+        };
+
+        let formBody = [];
+        for (let property in details) {
+            let encodedKey = encodeURIComponent(property);
+            let encodedValue = encodeURIComponent(details[property]);
+            formBody.push(encodedKey + "=" + encodedValue);
+        }
+        formBody = formBody.join("&");
+        Cookies.set('jwt', '');
+        API.post('/login', formBody,  {headers: {
+                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"}
+        })
             .then(response => {
+                Cookies.set('jwt', response.data.token);
+                login(data.username);
                 history.push('/');
             })
             .catch(errInfo => {
+                reset({});
                 setLoginAlertOpen(true);
-                setLogging(false)
+                setLogging(false);
             })
     };
 
@@ -86,8 +108,8 @@ const LoginForm = () => {
                         fullWidth
                         autoFocus
                     />
-                    {errors.email && (
-                        <span className={classes.error}>{errors.email.message}</span>
+                    {errors.username && (
+                        <span className={classes.error}>{errors.username.message}</span>
                     )}
                     <TextField
                         name='password'

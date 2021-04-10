@@ -4,3 +4,4 @@ export const CONTACT = "/contact";
 export const ME = "/me";
 export const LOGIN = "/login";
 export const REGISTER = "/register";
+export const SONGS = "/songs";

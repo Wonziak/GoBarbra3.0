@@ -3,13 +3,14 @@ import './App.css';
 import {Router} from "react-router-dom"
 import {Routing} from "./routing/Routing";
 import {history} from './history'
+import {View} from "./view/View";
 
 function App() {
   return (
       <div className="App">
-        <Router history={history}>
-          <Routing/>
-        </Router>
+              <Router history={history}>
+                  <View children={<Routing/>}/>
+              </Router>
       </div>
   );
 }
