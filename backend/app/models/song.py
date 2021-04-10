@@ -7,7 +7,7 @@ class Song(models.Model):
     text = fields.CharField(max_length=50)
     language = fields.CharField(max_length=3)
     creation_date = fields.DatetimeField(auto_now=True)
-
+    author_id = fields.IntField(null=True)
 
     class Meta:
         ordering = ["id"]
@@ -15,4 +15,3 @@ class Song(models.Model):
 
 Song_Pydantic = pydantic_model_creator(Song, name="Song")
 SongIn_Pydantic = pydantic_model_creator(Song, name="SongIn", exclude_readonly=True)
-

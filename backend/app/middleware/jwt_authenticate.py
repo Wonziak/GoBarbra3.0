@@ -15,7 +15,7 @@ async def authenticate_and_generate_token(username, password):
         'id': user_obj.id,
         'email': user_obj.email,
         'exp': datetime.utcnow() + timedelta(days=1),
-        'iat': datetime.utcnow()
+        'iat': datetime.utcnow(),
     }
     token = jwt.encode(payload, JWT_SECRET)
     return {'token': token}

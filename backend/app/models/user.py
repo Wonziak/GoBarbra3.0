@@ -8,6 +8,7 @@ class User(models.Model):
     username = fields.CharField(50, unique=True)
     password_hash = fields.CharField(255)
     email = fields.CharField(128)
+    songs_count = fields.IntField(default=0, null=True)
 
     def verify_password(self, password):
         return bcrypt.verify(password, self.password_hash)
