@@ -1,40 +1,64 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { AccountCircle as AccountCircleIcon } from '@material-ui/icons';
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import {
     Avatar,
     Grid,
     Container,
     CssBaseline,
-    FormControlLabel,
     Button,
-    Checkbox,
     Typography,
 } from '@material-ui/core';
 import { useStyles } from './styles';
 import { useForm } from 'react-hook-form';
 import TextField from "@material-ui/core/TextField";
+import * as routes from '../../routing/routes'
+import API from '../../services/api'
+import Snackbar from "@material-ui/core/Snackbar";
+import Slide from '@material-ui/core/Slide';
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from '@material-ui/icons/Close';
 
+function transition(props) {
+    return <Slide {...props} direction="right"
+                  style={{
+        backgroundColor:'#cc0000'}}
+    />;
+}
 const LoginForm = () => {
     const classes = useStyles();
+    const history = useHistory()
     const { register, handleSubmit, errors } = useForm({
         mode: 'onChange',
         reValidateMode: 'onChange',
         defaultValues: {
-            email: '',
+            username: '',
             password: '',
-            remember: true,
         },
     });
-
-    const onSubmit = data => alert(JSON.stringify(data));
+    const [loginAlertOpen, setLoginAlertOpen] = useState(false);
+    const [logging, setLogging] = useState(false);
+    const handleClose = () => {
+        setLoginAlertOpen(false);
+    };
+    const onSubmit = (data) => {
+        setLogging(true)
+        API.post('//login', data)
+            .then(response => {
+                history.push('/');
+            })
+            .catch(errInfo => {
+                setLoginAlertOpen(true);
+                setLogging(false)
+            })
+    };
 
     return (
         <Container component='main' maxWidth='xs'>
             <CssBaseline />
             <div className={classes.paper}>
-                <Avatar className={classes.avatar}>
-                    <AccountCircleIcon style={{ fontSize: 45 }} />
+                <Avatar className={logging? classes.animateAvatar:classes.avatar}>
+                    <AccountCircleIcon style={{ fontSize: 45 }}  />
                 </Avatar>
                 <Typography component='h1' variant='h4'>
                     Sign in
@@ -45,19 +69,19 @@ const LoginForm = () => {
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     <TextField
-                        name='email'
-                        label='Email Address'
+                        name='username'
+                        label='Username'
                         variant='outlined'
                         margin='normal'
                         inputRef={register({
-                            required: 'You must provide the email address!',
-                            pattern: {
-                                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                                message: 'You must provide a valid email address!',
+                            required: 'You must provide the username!',
+                            minLength: {
+                                value: 6,
+                                message: 'Your username must be greater than 6 characters',
                             },
                         })}
-                        autoComplete='email'
-                        error={!!errors.email}
+                        autoComplete='username'
+                        error={!!errors.username}
                         className={classes.textField}
                         fullWidth
                         autoFocus
@@ -88,22 +112,10 @@ const LoginForm = () => {
                     )}
 
                     <Grid container>
-                        <Grid item xs>
-                            <Link to='/' variant='body2' className={classes.link}>
+                        <Grid item>
+                            <Link to={routes.HOME} variant='body2' className={classes.link}>
                                 Forgot password?
                             </Link>
-                        </Grid>
-                        <Grid item>
-                            <FormControlLabel
-                                label='Remember me'
-                                name='remember'
-                                control={
-                                    <Checkbox
-                                        className={classes.checkBox}
-                                        inputRef={register()}
-                                    />
-                                }
-                            />
                         </Grid>
                     </Grid>
 
@@ -111,20 +123,47 @@ const LoginForm = () => {
                         type='submit'
                         fullWidth
                         variant='contained'
-                        disabled={!!errors.email || !!errors.password}
+                        disabled={!!errors.email || !!errors.password || logging}
                         className={classes.submit}
                     >
                         Sign In
                     </Button>
                     <Grid container>
                         <Grid item>
-                            <Link to="/register" variant='body2' className={classes.link}>
+                            <Link to={routes.REGISTER} variant='body2' className={classes.link}>
                                 {'New to this platform? Create an Acount.'}
                             </Link>
                         </Grid>
                     </Grid>
                 </form>
             </div>
+            <Snackbar
+
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                sev
+                open={loginAlertOpen}
+                onClose={handleClose}
+                onExit={handleClose}
+                TransitionComponent={transition}
+                message="Wrong username or password"
+                key={'Login alert'}
+                autoHideDuration={5000}
+                action={
+                    <React.Fragment>
+                        <IconButton
+                            aria-label="close"
+                            color="inherit"
+
+                            onClick={handleClose}
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                    </React.Fragment>
+                }
+            />
         </Container>
     );
 };

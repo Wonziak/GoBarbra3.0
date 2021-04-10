@@ -25,6 +25,27 @@ export const useStyles = makeStyles(theme => {
             backgroundColor: emeraldGreenColor,
             fontSize: 50,
         },
+        animateAvatar:{
+            margin: theme.spacing(3),
+            backgroundColor: emeraldGreenColor,
+            fontSize: 50,
+            animation: `$colorChange 3000ms ${theme.transitions.easing.easeInOut}`,
+            animationIterationCount: 'infinite'
+        },
+        "@keyframes colorChange": {
+            "0%": {
+                backgroundColor: emeraldGreenColor,
+                transform:"rotateY(0deg)"
+            },
+
+            "50%": {
+                backgroundColor: mingColor,
+            },
+            "100%": {
+                backgroundColor: emeraldGreenColor,
+                transform: "rotateY(360deg)"
+            }
+        },
         form: {
             marginTop: theme.spacing(4),
             width: '100%',
@@ -38,9 +59,6 @@ export const useStyles = makeStyles(theme => {
         link: {
             color: mingColor,
             textDecoration: 'none !important',
-        },
-        checkBox: {
-            color: `${emeraldGreenColor} !important`,
         },
         error: {
             color: 'red',
@@ -66,6 +84,7 @@ export const useStyles = makeStyles(theme => {
                     borderColor: mingColor,
                 }
             }
-        }
+        },
+
     };
 });
