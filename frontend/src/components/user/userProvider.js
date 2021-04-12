@@ -1,21 +1,32 @@
-import React, {createContext, useState} from "react";
-import Cookies from "js-cookie";
-export const UserContext = createContext({ name: '', auth: false });
+import React, {createContext, useEffect, useState} from "react";
+import Cookies from 'js-cookie';
+export const UserContext = createContext({ token: '', auth: false });
+
 
 export const UserProvider = ({ children }) => {
-    const [user, setUser] = useState({ name: '', auth: false });
+    const [user, setUser] = useState({ token: '', auth: false });
 
-    const login = (name) => {
+    useEffect(()=>{
+        const jwt = Cookies.get("jwt");
+        if (jwt){
+            setUser({
+                token: jwt,
+                auth: true,
+            });
+        }
+    },[])
+
+    const login = (token) => {
         setUser({
-            name: name,
+            token: token,
             auth: true,
         });
     };
 
     const logout = () => {
-        Cookies.set('jwt','')
+        Cookies.remove('jwt');
         setUser({
-            name: '',
+            token: '',
             auth: false,
         });
     };

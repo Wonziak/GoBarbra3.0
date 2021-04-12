@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import background from "../img/notes-wallpaper.jpg";
-const emeraldGreenColor = '#62C370';
+const emeraldGreenColor = '#62c370';
+const emeraldGreenColorOpacity = "rgba(98,195,112,0.5)";
 const drawerWidth = 240;
 
 export const useStyles = makeStyles((theme) => ({
@@ -19,6 +20,7 @@ export const useStyles = makeStyles((theme) => ({
         display: 'none',
     },
     title: {
+        width: "100%",
         textAlign: "start",
         flexGrow: 1,
     },
@@ -60,13 +62,18 @@ export const useStyles = makeStyles((theme) => ({
         },
     },
 
+    divider:{
+        backgroundColor: `${emeraldGreenColorOpacity}`
+    },
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
         whiteSpace: 'nowrap',
     },
     drawerOpen: {
+        backgroundColor: "rgba(255,255,255,0.7)",
         width: drawerWidth,
+        borderRight: `1px solid ${emeraldGreenColorOpacity}`,
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -77,6 +84,7 @@ export const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
+        borderRight: `1px solid ${emeraldGreenColorOpacity}`,
         overflowX: 'hidden',
         width: theme.spacing(7) + 1,
         [theme.breakpoints.up('sm')]: {

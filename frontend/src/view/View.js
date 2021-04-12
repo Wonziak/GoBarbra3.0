@@ -48,25 +48,26 @@ export const View = ({children}) =>{
                                 color="inherit" aria-label="menu">
                         <MenuIcon />
                     </IconButton>
-                    {
-                        !open&&
                         <Typography variant="h5" className={classes.title}>
                             <Link to={routes.HOME} className={classes.titleLink}>
-                                GO BARBRA V3
+                                {!open ?
+                                    'GO BARBRA V3' :
+                                    ''
+                                }
                             </Link>
                         </Typography>
-                    }
 
                     {user.auth?
-                        <Link to={routes.HOME} className={clsx(classes.titleLink,classes.loginButton)}>
-                        <Button color="inherit" onClick={()=>{
-                            logout();
-                        }}>Logout</Button>
-                        </Link>:
-                        <Link to={routes.LOGIN} className={clsx(classes.titleLink,classes.loginButton)}>
-                            <Button color="inherit" >Login</Button>
-                        </Link>
-
+                        <Button color="inherit" onClick={()=>{logout();}} className={classes.loginButton}>
+                            <Link to={routes.HOME} className={clsx(classes.titleLink,classes.loginButton)}>
+                                Logout
+                            </Link>
+                            </Button>:
+                        <Button color="inherit" className={classes.loginButton}>
+                            <Link to={routes.LOGIN} className={clsx(classes.titleLink,classes.loginButton)}>
+                                Login
+                            </Link>
+                        </Button>
                     }
                 </Toolbar>
             </AppBar>
@@ -93,7 +94,7 @@ export const View = ({children}) =>{
                 </div>
                 <LogoutMenu/>
                 {user.auth&&<>
-                    <Divider />
+                    <Divider className={classes.divider}/>
                     <LoggedMenu/>
                     </>
                 }

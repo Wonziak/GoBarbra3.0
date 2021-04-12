@@ -10,7 +10,7 @@ import * as routes from "./routes";
 import {ErrorPage} from "../pages/ErrorPage";
 import {AuthRoute} from "./AuthRoute";
 import {Me} from "../pages/Me";
-import {Songs} from "../pages/Songs";
+
 export const Routing = () => {
     return (
         <>

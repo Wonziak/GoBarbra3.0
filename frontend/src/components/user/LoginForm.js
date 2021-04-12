@@ -65,7 +65,7 @@ const LoginForm = () => {
         })
             .then(response => {
                 Cookies.set('jwt', response.data.token);
-                login(data.username);
+                login(response.data.token);
                 history.push('/');
             })
             .catch(errInfo => {
