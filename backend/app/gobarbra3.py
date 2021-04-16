@@ -1,5 +1,5 @@
 import uvicorn
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 from backend.app.routers import songs, users
 from starlette.responses import RedirectResponse
