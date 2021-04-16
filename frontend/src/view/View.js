@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, {useContext, useState} from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -17,10 +17,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import logoImage from '../img/Barbra-logo.png';
 import {LoggedMenu, LogoutMenu} from './menu'
-import Cookies from 'js-cookie';
 import {useHistory} from "react-router-dom";
+import {UserContext} from "../components/user/userProvider";
 export const View = ({children}) =>{
-
+    const {user, logout} = useContext(UserContext);
     const theme = useTheme();
     const classes = useStyles();
     const [open, setOpen] = useState(false);
@@ -48,24 +48,26 @@ export const View = ({children}) =>{
                                 color="inherit" aria-label="menu">
                         <MenuIcon />
                     </IconButton>
-                    {
-                        !open&&
                         <Typography variant="h5" className={classes.title}>
                             <Link to={routes.HOME} className={classes.titleLink}>
-                                GO BARBRA V3
+                                {!open ?
+                                    'GO BARBRA V3' :
+                                    ''
+                                }
                             </Link>
                         </Typography>
-                    }
 
-                    {Cookies.get('jwt2')?
-                        <Button color="inherit" onClick={()=>{
-                            Cookies.remove("jwt2");
-                            history.push("/");
-                        }}>Logout</Button>:
-                        <Link to={routes.LOGIN} className={clsx(classes.titleLink,classes.loginButton)}>
-                            <Button color="inherit" >Login</Button>
-                        </Link>
-
+                    {user.auth?
+                        <Button color="inherit" onClick={()=>{logout();}} className={classes.loginButton}>
+                            <Link to={routes.HOME} className={clsx(classes.titleLink,classes.loginButton)}>
+                                Logout
+                            </Link>
+                            </Button>:
+                        <Button color="inherit" className={classes.loginButton}>
+                            <Link to={routes.LOGIN} className={clsx(classes.titleLink,classes.loginButton)}>
+                                Login
+                            </Link>
+                        </Button>
                     }
                 </Toolbar>
             </AppBar>
@@ -91,12 +93,11 @@ export const View = ({children}) =>{
                     </IconButton>
                 </div>
                 <LogoutMenu/>
-                {Cookies.get('jwt2')&&<>
-                    <Divider />
+                {user.auth&&<>
+                    <Divider className={classes.divider}/>
                     <LoggedMenu/>
                     </>
                 }
-
 
             </Drawer>
             <main className={classes.content}>

@@ -12,13 +12,13 @@ import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import * as routes from '../routing/routes'
 import {Link} from "react-router-dom";
 import {makeStyles} from "@material-ui/core/styles";
-
+const mingColor = '#387780';
 const useStyles = makeStyles((theme) => ({
     listItem:{
         textDecoration: 'none',
-        color: "#333",
+        color: `${mingColor}`,
         '&:visited': {
-            color: "#333"
+            color: `${mingColor}`
         },
 
     }
@@ -28,7 +28,7 @@ const ListItemLink = ({icon, path, text}) => {
     return (
         <Link to={path} className={classes.listItem}>
         <ListItem button key={text}>
-                <ListItemIcon>{icon}</ListItemIcon>
+                <ListItemIcon className={classes.listItem}>{icon}</ListItemIcon>
                 <ListItemText primary={text} />
         </ListItem>
         </Link>
@@ -45,7 +45,7 @@ const LoggedMenu = () => {
 const LogoutMenu = () => {
     return (
         <List>
-            <ListItemLink icon={ <HomeIcon/>} path={routes.HOME} text="Home"/>
+            <ListItemLink icon={ <HomeIcon/>} path={routes.HOME} text="Home" />
             <ListItemLink icon={ <InfoIcon/>} path={routes.ABOUT} text="About"/>
             <ListItemLink icon={ <ContactSupportIcon/>} path={routes.CONTACT} text="Contact"/>
         </List>
