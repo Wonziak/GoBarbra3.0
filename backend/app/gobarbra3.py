@@ -6,7 +6,6 @@ from starlette.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
 origins = [
     "http://localhost.tiangolo.com",
     "https://localhost.tiangolo.com",
@@ -21,22 +20,31 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 app.include_router(songs.router)
 app.include_router(users.router)
 
-@app.get('/') #tylko dla wygody, żeby odrazu na swaggera weszło
+
+@app.get('/')  # tylko dla wygody, żeby odrazu na swaggera weszło
 async def redirect():
     return RedirectResponse(url='/docs', status_code=302)
 
 
-register_tortoise(
-    app,
-    db_url="sqlite://db.sqlite3",
-    modules={'models': ['backend.app.models.song', 'backend.app.models.user']},
-    generate_schemas=True,
-    add_exception_handlers=True
-)
+try:
+    register_tortoise(
+        app,
+        db_url="postgres://postgres:postgres@172.17.0.1:5432/postgres",
+        modules={'models': ['backend.app.models.song', 'backend.app.models.user']},
+        generate_schemas=True,
+        add_exception_handlers=True
+    )
+except ConnectionRefusedError:
+    register_tortoise(
+        app,
+        db_url="postgres://postgres:postgres@localhost:5432/postgres",
+        modules={'models': ['backend.app.models.song', 'backend.app.models.user']},
+        generate_schemas=True,
+        add_exception_handlers=True
+    )
 
 if __name__ == "__main__":
     uvicorn.run("gobarbra3:app", host="localhost", port=8000, log_level="info", reload=True)
