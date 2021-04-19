@@ -2,8 +2,7 @@ import jwt
 from fastapi import HTTPException, status
 from backend.app.models.user import User, User_Pydantic
 from datetime import datetime, timedelta
-
-JWT_SECRET = 'myjwtsecret'
+from backend.app.settings import JWT_SECRET
 
 
 async def authenticate_and_generate_token(username, password):

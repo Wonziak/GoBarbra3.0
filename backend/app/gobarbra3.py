@@ -1,9 +1,23 @@
 import uvicorn
+import time
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 from backend.app.routers import songs, users
 from starlette.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
+from backend.app.settings import postgres_user, postgres_password, get_ip
+
+
+def connect_to_db():
+    register_tortoise(
+        app,
+        db_url='postgres://{user}:{password}@{ip}:5432/postgres'.format(user=postgres_user,
+                                                                        password=postgres_password, ip=get_ip()),
+        modules={'models': ['backend.app.models.song', 'backend.app.models.user']},
+        generate_schemas=True,
+        add_exception_handlers=True
+    )
+
 
 app = FastAPI()
 origins = [
@@ -23,28 +37,13 @@ app.add_middleware(
 app.include_router(songs.router)
 app.include_router(users.router)
 
+connect_to_db()
+
 
 @app.get('/')  # tylko dla wygody, żeby odrazu na swaggera weszło
 async def redirect():
     return RedirectResponse(url='/docs', status_code=302)
 
-
-try:
-    register_tortoise(
-        app,
-        db_url="postgres://postgres:postgres@172.17.0.1:5432/postgres",
-        modules={'models': ['backend.app.models.song', 'backend.app.models.user']},
-        generate_schemas=True,
-        add_exception_handlers=True
-    )
-except ConnectionRefusedError:
-    register_tortoise(
-        app,
-        db_url="postgres://postgres:postgres@localhost:5432/postgres",
-        modules={'models': ['backend.app.models.song', 'backend.app.models.user']},
-        generate_schemas=True,
-        add_exception_handlers=True
-    )
 
 if __name__ == "__main__":
     uvicorn.run("gobarbra3:app", host="localhost", port=8000, log_level="info", reload=True)
