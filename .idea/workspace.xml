@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bcd95c0c-8531-4877-b7bd-dbec73d46ad1" name="Default Changelist" comment="" />
+    <list default="true" id="bcd95c0c-8531-4877-b7bd-dbec73d46ad1" name="Default Changelist" comment="connection upgrade">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/refrains/2.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/refrains/4.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/refrains/5.mp3" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +55,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Race/racebe" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -58,7 +63,29 @@
       <recent name="F:\GoBarbra3\app" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.gobarbra3">
+    <configuration name="gobarbra3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FastApi" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/app/gobarbra3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="gobarbra3" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FastApi" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -125,8 +152,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml.db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="db" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
+      <item itemvalue="Python.gobarbra3" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.gobarbra3" />
+        <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
         <item itemvalue="Python.gobarbra3" />
         <item itemvalue="Python.gobarbra3" />
         <item itemvalue="Python.gobarbra3" />
@@ -134,6 +180,21 @@
     </recent_temporary>
   </component>
   <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
     <option name="showServicesTree" value="false" />
   </component>
   <component name="SvnConfiguration">
@@ -181,7 +242,40 @@
       <workItem from="1616692982609" duration="84000" />
       <workItem from="1616693505267" duration="866000" />
       <workItem from="1616694391683" duration="305000" />
+      <workItem from="1618611048809" duration="1136000" />
+      <workItem from="1618651703529" duration="638000" />
+      <workItem from="1618671340970" duration="10704000" />
+      <workItem from="1618683228068" duration="1798000" />
+      <workItem from="1618685173391" duration="144000" />
+      <workItem from="1618763474808" duration="4336000" />
+      <workItem from="1618813624328" duration="1225000" />
+      <workItem from="1618848190832" duration="1055000" />
+      <workItem from="1618917087670" duration="294000" />
+      <workItem from="1618924745792" duration="319000" />
+      <workItem from="1619270128236" duration="10428000" />
     </task>
+    <task id="LOCAL-00001" summary="postgres image">
+      <created>1618685279781</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1618685279781</updated>
+    </task>
+    <task id="LOCAL-00002" summary="connection upgrade">
+      <created>1618817631692</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1618817631692</updated>
+    </task>
+    <task id="LOCAL-00003" summary="structure fix, auth to song routers">
+      <created>1619280634339</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619280634339</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,46 +285,56 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="postgres image" />
+    <MESSAGE value="connection upgrade" />
+    <MESSAGE value="structure fix, auth to song routers" />
+    <option name="LAST_COMMIT_MESSAGE" value="structure fix, auth to song routers" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616693575603">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618671579701">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1618671579701" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616693575603" />
     <state x="720" y="323" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616431135922">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="2640" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1613121902623" />
     <state x="720" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1616431135922" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1615907673953">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2670" y="80" key="CommitChangelistDialog2" timestamp="1619280720826">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2660" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1615539056112" />
+    <state x="2670" y="80" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619280720826" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1618817630939" />
+    <state x="2660" y="275" key="FileChooserDialogImpl" timestamp="1618674960338">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2660" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1618674960338" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1615907673953" />
-    <state width="1877" height="311" key="GridCell.Tab.0.bottom" timestamp="1616694698610">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="257" key="GridCell.Tab.0.bottom" timestamp="1619279981613">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="311" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1616252159980" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614955234408" />
-    <state width="1877" height="311" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1616694698610" />
-    <state width="1877" height="311" key="GridCell.Tab.0.center" timestamp="1616694698610">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619279981613" />
+    <state width="1877" height="311" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618768024233" />
+    <state width="1877" height="257" key="GridCell.Tab.0.center" timestamp="1619279981613">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="311" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1616252159980" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614955234408" />
-    <state width="1877" height="311" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1616694698610" />
-    <state width="1877" height="311" key="GridCell.Tab.0.left" timestamp="1616694698610">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="257" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619279981613" />
+    <state width="1877" height="311" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618768024233" />
+    <state width="1877" height="257" key="GridCell.Tab.0.left" timestamp="1619279981613">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="311" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1616252159980" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614955234407" />
-    <state width="1877" height="311" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1616694698610" />
-    <state width="1877" height="311" key="GridCell.Tab.0.right" timestamp="1616694698610">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="257" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619279981613" />
+    <state width="1877" height="311" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618768024233" />
+    <state width="1877" height="257" key="GridCell.Tab.0.right" timestamp="1619279981613">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="311" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1616252159980" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614955234408" />
-    <state width="1877" height="311" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1616694698610" />
+    <state width="1877" height="257" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619279981613" />
+    <state width="1877" height="311" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618768024233" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1616431145425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -241,5 +345,14 @@
     </state>
     <state x="2381" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614785968138" />
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1615280739882" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1619280637875">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619280637875" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1618817637463" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/GoBarbra3$gobarbra3.coverage" NAME="gobarbra3 Coverage Results" MODIFIED="1619279981604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/app" />
+    <SUITE FILE_PATH="coverage/GoBarbra3$gobarbra3__1_.coverage" NAME="gobarbra3 Coverage Results" MODIFIED="1618681284638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/app" />
   </component>
 </project>
