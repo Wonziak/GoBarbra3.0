@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends
 from passlib.hash import bcrypt
 from backend.app.middleware.jwt_authenticate import authenticate_and_generate_token
 from backend.app.middleware.user_authentication import get_current_user
+from backend.app.services.user import delete_user, update_user_data
 
 router = APIRouter(tags=['User'])
 
@@ -24,3 +25,13 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
 async def get_user(user: User_Pydantic = Depends(get_current_user)):
     return user
 
+
+@router.delete('/user/delete')
+async def delete_current_user(user: User_Pydantic = Depends(get_current_user)):
+    await delete_user(user)
+
+
+@router.put('/user/change')
+async def update_user(user_data: dict = {'username': "", "email": "", "password": "", "confirm password": ""},
+                      user: User_Pydantic = Depends(get_current_user)):
+    await update_user_data(user_data, user)

@@ -5,11 +5,9 @@ from backend.app.routers import songs, users
 from starlette.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.settings import postgres_user, postgres_password, get_ip
-import time
 
 
 def connect_to_db():
-    time.sleep(3)
     register_tortoise(
         app,
         db_url='postgres://{user}:{password}@{ip}:5432/postgres'.format(user=postgres_user,
