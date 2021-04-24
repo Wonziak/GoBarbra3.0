@@ -23,3 +23,4 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
 @router.get('/user/me', response_model=User_Pydantic)
 async def get_user(user: User_Pydantic = Depends(get_current_user)):
     return user
+
