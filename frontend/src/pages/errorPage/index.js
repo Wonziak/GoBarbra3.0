@@ -1,15 +1,16 @@
+import {useStyles} from "../styles";
+import {Button, Container, CssBaseline} from "@material-ui/core";
 import React from "react";
-import {Button, Container, CssBaseline} from '@material-ui/core';
-import {useStyles} from "./styles";
 import Typography from "@material-ui/core/Typography";
-export const About = () =>{
+
+export const ErrorPage = () =>{
     const classes = useStyles();
     return(
         <Container component='main' maxWidth='xs'>
             <CssBaseline />
             <div className={classes.paper}>
-                <Typography variant="h5">About</Typography>
+                <Typography variant="h5">404</Typography>
             </div>
         </Container>
-    )
+    );
 }

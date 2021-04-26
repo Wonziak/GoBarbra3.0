@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import {Redirect, Route} from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import Cookies from 'js-cookie';
-import {UserContext} from "../components/user/userProvider";
+import {UserContext} from "../context/user";
 
 
 export const AuthRoute = ({children, ...rest}) => {

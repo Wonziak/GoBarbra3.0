@@ -6,6 +6,7 @@ const dartmouthGreenColor = '#2D7638';
 const emeraldGreenColor = '#62C370';
 const emeraldGreenColorOpacity = "rgba(98,195,112,0.6)";
 const paperBackGroundWhite = "rgba(255,255,255,0.8)";
+
 export const useStyles = makeStyles(theme => {
     return {
         paper: {
@@ -21,5 +22,8 @@ export const useStyles = makeStyles(theme => {
             padding: '1.5rem 2.5rem',
 
         },
+
     }
+
+
 });

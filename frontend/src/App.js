@@ -3,7 +3,7 @@ import './App.css';
 import {Router} from "react-router-dom"
 import {Routing} from "./routing/Routing";
 import {history} from './history'
-import {View} from "./view/View";
+import {View} from "./view";
 
 function App() {
   return (
