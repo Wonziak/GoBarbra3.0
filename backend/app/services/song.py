@@ -26,13 +26,13 @@ async def song_generator(song_id: int, user: User_Pydantic):
 async def get_song_from_id(song_id: int, user_id: int):
     obj = await Song_Pydantic.from_queryset_single(Song.get(id=song_id, author_id=user_id))
     if not obj:
-        raise HTTPException(status_code=404, detail="Song not found")
+        raise HTTPException(status_code=404, detail="Song not found in db")
     dirname = os.path.dirname(__file__)
     if os.path.exists(os.path.join(dirname, '../results/{id}Result.mp3'.format(id=song_id))):
         file = open(os.path.join(dirname, '../results/{id}Result.mp3'.format(id=obj.id)), mode="rb")
         return StreamingResponse(file, media_type="audio/mp3")
     else:
-        raise HTTPException(status_code=404, detail="Song not found")
+        raise HTTPException(status_code=404, detail="Song file not found")
 
 
 async def add_song_to_db(song: SongIn_Pydantic, user: User_Pydantic):

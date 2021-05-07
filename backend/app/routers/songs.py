@@ -19,7 +19,7 @@ async def create_song_new(song: SongIn_Pydantic, user: User_Pydantic = Depends(g
     await song_generator(song_obj.id, user)
 
 
-@router.post('/song/{song_id}')
+@router.patch('/song/{song_id}')
 async def create_song_from_data_in_db(song_id: int, user: User_Pydantic = Depends(get_current_user)):
     await song_generator(song_id, user)
 

@@ -2,7 +2,6 @@ import uvicorn
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 from backend.app.routers import songs, users
-from starlette.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.settings import postgres_user, postgres_password, get_ip
 
@@ -33,16 +32,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 app.include_router(songs.router)
 app.include_router(users.router)
 
 connect_to_db()
-
-
-@app.get('/')  # tylko dla wygody, żeby odrazu na swaggera weszło
-async def redirect():
-    return RedirectResponse(url='/docs', status_code=302)
-
 
 if __name__ == "__main__":
     uvicorn.run("gobarbra3:app", host="localhost", port=8000, log_level="info", reload=True)

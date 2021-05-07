@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="bcd95c0c-8531-4877-b7bd-dbec73d46ad1" name="Default Changelist" comment="connection upgrade">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/refrains/2.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/refrains/4.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/refrains/5.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/gobarbra3.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/gobarbra3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/results/2Result.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/routers/songs.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/routers/songs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/services/song.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/services/song.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +56,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Race/racebe" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -252,7 +254,21 @@
       <workItem from="1618848190832" duration="1055000" />
       <workItem from="1618917087670" duration="294000" />
       <workItem from="1618924745792" duration="319000" />
-      <workItem from="1619270128236" duration="10428000" />
+      <workItem from="1619270128236" duration="10705000" />
+      <workItem from="1619280935192" duration="6721000" />
+      <workItem from="1619416602087" duration="1278000" />
+      <workItem from="1619532215703" duration="1108000" />
+      <workItem from="1619675848796" duration="5357000" />
+      <workItem from="1619688399713" duration="3108000" />
+      <workItem from="1619692052829" duration="323000" />
+      <workItem from="1619692897045" duration="897000" />
+      <workItem from="1619856596354" duration="20000" />
+      <workItem from="1620143542682" duration="17000" />
+      <workItem from="1620153458624" duration="24000" />
+      <workItem from="1620154021975" duration="438000" />
+      <workItem from="1620154820553" duration="10000" />
+      <workItem from="1620154909494" duration="5000" />
+      <workItem from="1620222186124" duration="146000" />
     </task>
     <task id="LOCAL-00001" summary="postgres image">
       <created>1618685279781</created>
@@ -275,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619280634339</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="user update, delete">
+      <created>1619287661727</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619287661727</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +311,8 @@
     <MESSAGE value="postgres image" />
     <MESSAGE value="connection upgrade" />
     <MESSAGE value="structure fix, auth to song routers" />
-    <option name="LAST_COMMIT_MESSAGE" value="structure fix, auth to song routers" />
+    <MESSAGE value="user update, delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="user update, delete" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618671579701">
@@ -301,58 +325,58 @@
     </state>
     <state x="2640" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1613121902623" />
     <state x="720" y="323" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1616431135922" />
-    <state x="2670" y="80" key="CommitChangelistDialog2" timestamp="1619280720826">
+    <state x="2670" y="80" key="CommitChangelistDialog2" timestamp="1619287674630">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2670" y="80" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619280720826" />
+    <state x="2670" y="80" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619287674630" />
     <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1618817630939" />
-    <state x="2660" y="275" key="FileChooserDialogImpl" timestamp="1618674960338">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1620154912955">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2660" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619856609190" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620154912955" />
+    <state width="1877" height="257" key="GridCell.Tab.0.bottom" timestamp="1619692378265">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2660" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1618674960338" />
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1615907673953" />
-    <state width="1877" height="257" key="GridCell.Tab.0.bottom" timestamp="1619279981613">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="311" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1616252159980" />
-    <state width="1877" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619279981613" />
+    <state width="1877" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619679831563" />
+    <state width="1877" height="257" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619692378265" />
     <state width="1877" height="311" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618768024233" />
-    <state width="1877" height="257" key="GridCell.Tab.0.center" timestamp="1619279981613">
+    <state width="1877" height="257" key="GridCell.Tab.0.center" timestamp="1619692378265">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="311" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1616252159980" />
-    <state width="1877" height="257" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619279981613" />
+    <state width="1877" height="257" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619679831563" />
+    <state width="1877" height="257" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619692378265" />
     <state width="1877" height="311" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618768024233" />
-    <state width="1877" height="257" key="GridCell.Tab.0.left" timestamp="1619279981613">
+    <state width="1877" height="257" key="GridCell.Tab.0.left" timestamp="1619692378265">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="311" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1616252159980" />
-    <state width="1877" height="257" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619279981613" />
+    <state width="1877" height="257" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619679831563" />
+    <state width="1877" height="257" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619692378265" />
     <state width="1877" height="311" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618768024233" />
-    <state width="1877" height="257" key="GridCell.Tab.0.right" timestamp="1619279981613">
+    <state width="1877" height="257" key="GridCell.Tab.0.right" timestamp="1619692378265">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="311" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1616252159980" />
-    <state width="1877" height="257" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619279981613" />
+    <state width="1877" height="257" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619679831563" />
+    <state width="1877" height="257" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619692378265" />
     <state width="1877" height="311" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618768024233" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1616431145425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614788097218" />
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1616431145425" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1615280739882">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2381" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1614785968138" />
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1615280739882" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1619280637875">
+    <state x="2381" y="162" key="SettingsEditor" timestamp="1619280827531">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619280637875" />
+    <state x="2381" y="162" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619280827531" />
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1615280739882" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1619287687440">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1619287687440" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1618817637463" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/GoBarbra3$gobarbra3.coverage" NAME="gobarbra3 Coverage Results" MODIFIED="1619279981604" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/app" />
+    <SUITE FILE_PATH="coverage/GoBarbra3$gobarbra3.coverage" NAME="gobarbra3 Coverage Results" MODIFIED="1619692107171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/app" />
     <SUITE FILE_PATH="coverage/GoBarbra3$gobarbra3__1_.coverage" NAME="gobarbra3 Coverage Results" MODIFIED="1618681284638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/app" />
   </component>
 </project>
