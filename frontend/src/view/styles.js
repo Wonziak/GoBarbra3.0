@@ -5,13 +5,26 @@ const emeraldGreenColorOpacity = "rgba(98,195,112,0.5)";
 const drawerWidth = 240;
 
 export const useStyles = makeStyles((theme) => ({
+
+    bgImage:{
+        position: "fixed",
+        backgroundImage: ` url(${background})`,
+        //filter: 'sepia(10%) invert(100%)',
+        height: "100%",
+        width: '100%',
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "contain",
+        background: "#fff",
+    },
     root: {
+        position: "absolute",
         display: "flex",
         height: '100vh',
-        backgroundImage: `url(${background})`,
-        background: "#fff",
-        backgroundSize: "cover"
-
+        width: '100vw',
+        top: "0%",
+        left: "0%",
+        overflow:"auto",
     },
     menuButton: {
         marginRight: theme.spacing(2),

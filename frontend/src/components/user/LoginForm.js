@@ -18,7 +18,7 @@ import Snackbar from "@material-ui/core/Snackbar";
 import Slide from '@material-ui/core/Slide';
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from '@material-ui/icons/Close';
-import {UserContext} from "./userProvider";
+import {UserContext} from "../../context/user";
 import Cookies from "js-cookie";
 
 function transition(props) {

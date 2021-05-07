@@ -38,14 +38,14 @@ const ListItemLink = ({icon, path, text}) => {
 const LoggedMenu = () => {
     return (
         <List>
-            <ListItemLink icon={ <AccountCircleIcon/>} path={routes.ME} text="Me"/>
+            <ListItemLink icon={ <AccountCircleIcon/>} path={routes.ME} text="Index"/>
         </List>
     )
 };
 const LogoutMenu = () => {
     return (
         <List>
-            <ListItemLink icon={ <HomeIcon/>} path={routes.HOME} text="Home" />
+            <ListItemLink icon={ <HomeIcon/>} path={routes.HOME} text="Index" />
             <ListItemLink icon={ <InfoIcon/>} path={routes.ABOUT} text="About"/>
             <ListItemLink icon={ <ContactSupportIcon/>} path={routes.CONTACT} text="Contact"/>
         </List>

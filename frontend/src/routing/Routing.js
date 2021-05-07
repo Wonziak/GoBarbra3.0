@@ -2,14 +2,15 @@ import React from 'react'
 
 import {Switch, Route} from 'react-router-dom';
 
-import {Home} from '../pages/Home';
-import {About} from '../pages/About';
+import {Home} from '../pages/home';
+import {About} from '../pages/about';
+import {NewSong} from '../pages/newSong';
 import {LoginForm} from "../components/user/LoginForm";
 import {RegisterForm} from "../components/user/RegisterForm";
 import * as routes from "./routes";
-import {ErrorPage} from "../pages/ErrorPage";
+import {ErrorPage} from "../pages/errorPage";
 import {AuthRoute} from "./AuthRoute";
-import {Me} from "../pages/Me";
+import {Me} from "../pages/me";
 
 export const Routing = () => {
     return (
@@ -29,6 +30,9 @@ export const Routing = () => {
                 </Route>
                 <AuthRoute path={routes.ME}>
                     <Me/>
+                </AuthRoute>
+                <AuthRoute path={routes.NEW_SONG}>
+                    <NewSong/>
                 </AuthRoute>
                 <Route >
                     <ErrorPage/>

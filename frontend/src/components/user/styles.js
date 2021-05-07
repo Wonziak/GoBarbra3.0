@@ -1,11 +1,8 @@
 
 import { makeStyles } from '@material-ui/core/styles';
+import {paperBackGroundWhite, mingColor, emeraldGreenColorOpacity, emeraldGreenColor, dartmouthGreenColor} from '../../pageStyle/style'
 
-const mingColor = '#387780';
-const dartmouthGreenColor = '#2D7638';
-const emeraldGreenColor = '#62C370';
-const emeraldGreenColorOpacity = "rgba(98,195,112,0.6)";
-const paperBackGroundWhite = "rgba(255,255,255,0.8)";
+
 
 export const useStyles = makeStyles(theme => {
     return {
