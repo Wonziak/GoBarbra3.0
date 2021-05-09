@@ -19,14 +19,11 @@ import logoImage from '../img/Barbra-logo.png';
 import {LoggedMenu, LogoutMenu} from './menu'
 import {useHistory} from "react-router-dom";
 import {UserContext} from "../context/user";
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 export const View = ({children}) =>{
     const {user, logout} = useContext(UserContext);
     const theme = useTheme();
     const classes = useStyles();
     const [open, setOpen] = useState(false);
-    const history = useHistory();
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -102,7 +99,6 @@ export const View = ({children}) =>{
                         <LoggedMenu/>
                     </>
                     }
-
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
