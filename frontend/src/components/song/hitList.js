@@ -1,4 +1,3 @@
-import {useStylesBasic} from "../../pages/styles";
 import {audioPlayerStyle, useStyles} from "./styles";
 import React, {useState} from "react";
 import Paper from "@material-ui/core/Paper";
@@ -16,6 +15,8 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 import abrakadabra from "../../hits/1.mp3"
 import barbara from "../../hits/2.mp3"
 import go from "../../hits/3.mp3"
+import ThemeProvider from "@material-ui/styles/ThemeProvider";
+import {createMuiTheme} from "@material-ui/core";
 const songs = [
     {
         text: "Abrakadabra",
@@ -35,7 +36,7 @@ const songs = [
 ]
 
 
-const ListElement = ({song, id, setData}) => {
+const ListElement = ({song, setData}) => {
 
 
     const classes = useStyles()
@@ -63,9 +64,8 @@ const ListElement = ({song, id, setData}) => {
 
 
 export const HitList = () => {
-    const basicClasses = useStylesBasic();
     const classes = useStyles()
-
+    const muiTheme = createMuiTheme({});
     const [page, setPage] = React.useState(0);
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -86,7 +86,7 @@ export const HitList = () => {
                         </TableHead>
                         <TableBody className={"body"}>
                             {songs.slice(page * 5, page * 5 + 5)
-                                .map((song, id) => <ListElement song={song} id={id} key={id} setData={setData}/>)}
+                                .map((song, id) => <ListElement song={song} key={id} setData={setData}/>)}
                         </TableBody>
                     </Table>
                 </TableContainer>
@@ -101,7 +101,7 @@ export const HitList = () => {
                 page={page}
                 onChangePage={handleChangePage}
             />
-
+            <ThemeProvider theme={muiTheme}>
             <AudioPlayer
                 width="100%"
                 useStyles={audioPlayerStyle}
@@ -109,6 +109,7 @@ export const HitList = () => {
                 preload="auto"
                 autoplay={true}
             />
+            </ThemeProvider>
 
         </>
     )

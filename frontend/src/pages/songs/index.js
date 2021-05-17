@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {Container, CssBaseline} from '@material-ui/core';
-
 import {SongList} from "../../components/song/songsList";
 import Cookies from "js-cookie";
 import API from "../../services/api";
 import {useHistory} from "react-router-dom";
-import Typography from "@material-ui/core/Typography";
-import Paper from "@material-ui/core/Paper";
 
 
 export const Songs = () => {
@@ -72,7 +69,7 @@ export const Songs = () => {
         history.push({pathname: `/song/edit/${song.id}`, state:{song}})
     }
     return (
-        <Container component='main' maxWidth='xl'>
+        <Container component='main' maxWidth='md'>
             <CssBaseline/>
 
             <SongList songs={songsList} handleSongRemove={handleSongRemove}

@@ -2,9 +2,8 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import {Link} from "react-router-dom";
 import * as routes from "../../routing/routes";
-import {Button, Container} from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import React, {useEffect, useState} from "react";
+import {Button, createMuiTheme} from "@material-ui/core";
+import React from "react";
 import {useStylesBasic} from "../../pages/styles";
 import TableContainer from "@material-ui/core/TableContainer";
 import Table from "@material-ui/core/Table";
@@ -12,17 +11,14 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import InputLabel from "@material-ui/core/InputLabel";
-import TextField from "@material-ui/core/TextField";
 import TableBody from "@material-ui/core/TableBody";
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {useStyles, audioPlayerStyle} from "./styles";
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-import API from "../../services/api";
-import Cookies from "js-cookie";
-import {ThemeProvider} from "@material-ui/styles";
 import AudioPlayer from "material-ui-audio-player";
 import TablePagination from "@material-ui/core/TablePagination";
+import ThemeProvider from "@material-ui/styles/ThemeProvider";
 
 
 const ListElement = ({song, id, handleRemove, handleEdit, handlePlay, handleStop, playerState})=>{
@@ -43,7 +39,7 @@ const ListElement = ({song, id, handleRemove, handleEdit, handlePlay, handleStop
               <EditIcon  className={classes.icon} onClick={()=>{handleEdit(song)}}/>
             </TableCell>
             <TableCell width={"12%"} align="center">
-                <DeleteIcon className={classes.icon} onClick={()=>{handleRemove(song, id)}}/>
+                <DeleteIcon className={classes.icon} onClick={()=>{handleRemove(song, id)}} />
             </TableCell>
             <TableCell width={"12%"} align="center">
                 <PlayCircleFilledIcon className={classes.icon} onClick={()=>{handlePlay(song.id)}}/>
@@ -56,19 +52,16 @@ const ListElement = ({song, id, handleRemove, handleEdit, handlePlay, handleStop
 export const SongList = ({songs, handleSongRemove, handleSongEdit, handlePlay, handleStop, playerState})=>{
     const basicClasses = useStylesBasic();
     const classes =  useStyles()
-
+    const muiTheme = createMuiTheme({});
     const [page, setPage] = React.useState(0);
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
 
-    useEffect(()=>{
-        console.log(playerState.src)
-    },[playerState])
     return(
         <>
             <Paper className={basicClasses.paper} >
-                <Typography variant="h5" paragraph="true">My songs</Typography>
+                <Typography variant="h4" paragraph="true">My songs</Typography>
                 {songs?<TableContainer component={Paper}>
                     <Table>
                         <TableHead className={classes.tableHeader}>
@@ -114,6 +107,7 @@ export const SongList = ({songs, handleSongRemove, handleSongEdit, handlePlay, h
                 </Link>
             </Paper>
             {playerState.data&&
+            <ThemeProvider theme={muiTheme}>
             <AudioPlayer
                 width="100%"
                 useStyles={audioPlayerStyle}
@@ -122,6 +116,7 @@ export const SongList = ({songs, handleSongRemove, handleSongEdit, handlePlay, h
                 preload="auto"
                 autoplay={true}
             />
+            </ThemeProvider>
             }
 
 

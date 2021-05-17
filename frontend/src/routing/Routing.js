@@ -14,6 +14,7 @@ import {Login} from "../pages/login";
 import {Register} from "../pages/register";
 import {Songs} from "../pages/songs";
 import {EditSong} from "../pages/editSong";
+import {UpdateUser} from "../pages/updateUser";
 export const Routing = () => {
     return (
         <>
@@ -30,7 +31,7 @@ export const Routing = () => {
                 <Route path={routes.ABOUT}>
                     <About/>
                 </Route>
-                <AuthRoute path={routes.ME}>
+                <AuthRoute exact path={routes.ME} >
                     <Me/>
                 </AuthRoute>
                 <AuthRoute path={routes.NEW_SONG}>
@@ -41,6 +42,9 @@ export const Routing = () => {
                 </AuthRoute>
                 <AuthRoute path={routes.EDIT_SONG}>
                     <EditSong/>
+                </AuthRoute>
+                <AuthRoute path={routes.UPDATE_USER}>
+                    <UpdateUser/>
                 </AuthRoute>
                 <Route >
                     <ErrorPage/>

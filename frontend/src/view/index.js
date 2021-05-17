@@ -17,7 +17,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import logoImage from '../img/Barbra-logo.png';
 import {LoggedMenu, LogoutMenu} from './menu'
-import {useHistory} from "react-router-dom";
 import {UserContext} from "../context/user";
 export const View = ({children}) =>{
     const {user, logout} = useContext(UserContext);

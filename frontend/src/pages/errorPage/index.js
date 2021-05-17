@@ -7,11 +7,11 @@ import {Link} from "react-router-dom";
 export const ErrorPage = () =>{
     const classes = useStylesBasic();
     return(
-        <Container component='main' maxWidth='xs'>
+        <Container component='main' maxWidth='sm'>
             <CssBaseline />
             <div className={classes.paper}>
-                <Typography variant="h5" paragraph="true" >404</Typography>
-                <Typography variant="h5" >Page not found</Typography>
+                <Typography variant="h4" paragraph="true" >404</Typography>
+                <Typography variant="h4" >Page not found</Typography>
                 <Button
                     component={ Link } to="/"
                     type='submit'
