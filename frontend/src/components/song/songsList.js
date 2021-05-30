@@ -21,7 +21,7 @@ import TablePagination from "@material-ui/core/TablePagination";
 import ThemeProvider from "@material-ui/styles/ThemeProvider";
 
 
-const ListElement = ({song, id, handleRemove, handleEdit, handlePlay, handleStop, playerState})=>{
+const ListElement = ({song, id, handleRemove, handleEdit, handlePlay, loading})=>{
 
     const classes =  useStyles()
     return(
@@ -42,22 +42,26 @@ const ListElement = ({song, id, handleRemove, handleEdit, handlePlay, handleStop
                 <DeleteIcon className={classes.icon} onClick={()=>{handleRemove(song, id)}} />
             </TableCell>
             <TableCell width={"12%"} align="center">
-                <PlayCircleFilledIcon className={classes.icon} onClick={()=>{handlePlay(song.id)}}/>
+                {!loading?
+                <PlayCircleFilledIcon className={classes.icon} onClick={()=>{handlePlay(song.id)}}/>:
+                <PlayCircleFilledIcon style={{color: "red"}}/>
+                }
+
             </TableCell>
         </TableRow>
     )
 
 }
 
-export const SongList = ({songs, handleSongRemove, handleSongEdit, handlePlay, handleStop, playerState})=>{
+export const SongList = ({songs, handleSongRemove, handleSongEdit, handlePlay, handleStop, playerState, loading})=>{
     const basicClasses = useStylesBasic();
     const classes =  useStyles()
     const muiTheme = createMuiTheme({});
     const [page, setPage] = React.useState(0);
+
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
-
     return(
         <>
             <Paper className={basicClasses.paper} >
@@ -80,7 +84,8 @@ export const SongList = ({songs, handleSongRemove, handleSongEdit, handlePlay, h
                                                                 handleRemove={handleSongRemove}
                                                                 handleEdit={handleSongEdit}
                                                                 handlePlay={handlePlay}
-                                                                handleStop={handleStop}/>)}
+                                                                handleStop={handleStop}
+                                loading={loading}/>)}
                         </TableBody>
                     </Table>
                 </TableContainer>:

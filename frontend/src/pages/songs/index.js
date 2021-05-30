@@ -8,6 +8,7 @@ import {useHistory} from "react-router-dom";
 
 export const Songs = () => {
     const [songsList, setSongsList] = useState([]);
+    const [loading, setLoading] = useState(false);
     const history = useHistory()
     const [playerState, setPlayerState] = useState({
         loading: false,
@@ -21,13 +22,12 @@ export const Songs = () => {
         })
             .then(response => {
                 setSongsList(response.data);
-                console.log(response.data)
             })
             .catch(errInfo => {
                 console.log(errInfo)
             })
 
-    }, []);
+    }, [jwt]);
 
     const handleSongRemove = (song, id) => {
 
@@ -43,6 +43,7 @@ export const Songs = () => {
             })
     }
     const handlePlay = (id)=>{
+        setLoading(true)
         API.get(`/song/${id}`,{
             responseType:  'blob',
             headers:{'Authorization': `Bearer ${jwt}`}
@@ -56,9 +57,12 @@ export const Songs = () => {
                     ...playerState,
                     data: audio
                 })
+                setLoading(false)
+
             })
             .catch(errInfo => {
                 console.log(errInfo)
+                setLoading(false)
             })
     }
     const handleStop = (id)=>{
@@ -74,7 +78,7 @@ export const Songs = () => {
 
             <SongList songs={songsList} handleSongRemove={handleSongRemove}
                       handleSongEdit={handleSongEdit} handlePlay={handlePlay}
-                      handleStop={handleStop} playerState={playerState}/>
+                      handleStop={handleStop} playerState={playerState} loading={loading}/>
         </Container>
     )
 }

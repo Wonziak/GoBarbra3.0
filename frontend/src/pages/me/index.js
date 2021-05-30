@@ -5,13 +5,12 @@ import Cookies from "js-cookie";
 import {useStylesBasic} from "../styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 import * as routes from "../../routing/routes";
 
 
 export const Me = () => {
     const classes = useStylesBasic();
-    const history = useHistory()
     const [user, setUser] = useState({
         username: '',
         email: ''
@@ -54,7 +53,7 @@ export const Me = () => {
                 {user.songs_count &&
                 <>
                     <Typography variant="h5" paragraph="true"> Songs count</Typography>
-                    <Typography variant="body1" paragraph="true" display="block" align="center">
+                    <Typography variant="body1"  display="block" align="center">
                         {user.songs_count}
                     </Typography>
                 </>}

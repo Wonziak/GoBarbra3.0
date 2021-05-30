@@ -51,7 +51,7 @@ export const EditSong = () => {
             <SongForm onSubmit={onSubmit} errors={errors}
                       register={register} handleSubmit={handleSubmit}
                       handleCloseSnackBar={handleClose} isSnackBarOpen={alertOpen}
-                      snackBarKey={"add song error"} snackBarMessage={"Error while adding new song"}
+                      snackBarKey={"edit song error"} snackBarMessage={"Error while editing song"}
                       edit={true} adding={adding}/>
         </Container>
     )

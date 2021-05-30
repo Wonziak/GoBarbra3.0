@@ -101,6 +101,7 @@ export const HitList = () => {
                 page={page}
                 onChangePage={handleChangePage}
             />
+            {data&&
             <ThemeProvider theme={muiTheme}>
             <AudioPlayer
                 width="100%"
@@ -109,7 +110,7 @@ export const HitList = () => {
                 preload="auto"
                 autoplay={true}
             />
-            </ThemeProvider>
+            </ThemeProvider>}
 
         </>
     )

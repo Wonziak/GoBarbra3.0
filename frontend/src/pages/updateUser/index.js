@@ -1,11 +1,10 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import {Container, CssBaseline} from '@material-ui/core';
 
 import {useHistory} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import Cookies from "js-cookie";
 import API from "../../services/api";
-import {useLocation} from "react-router-dom";
 import {UpdateForm} from "../../components/user/updateForm";
 
 
@@ -15,7 +14,7 @@ export const UpdateUser = () => {
         mode: 'onChange',
         reValidateMode: 'onChange',
         defaultValues: {
-            username:'',
+            username: '',
             email: '',
             password: '',
             passwordRepeat: '',
@@ -25,7 +24,7 @@ export const UpdateUser = () => {
     password.current = watch("password", '');
 
     const [alertOpen, setAlertOpen] = useState(false);
-    const [updating,setUpdating] = useState(false);
+    const [updating, setUpdating] = useState(false);
 
     const handleClose = () => {
         setAlertOpen(false);
@@ -36,9 +35,9 @@ export const UpdateUser = () => {
         let jwt = Cookies.get('jwt');
         let body = Object.fromEntries(Object.entries(data).filter(([_, v]) => v !== ""));
         console.log(body)
-        if (Object.keys(body).length>0){
-            API.put('/user/change', body,{
-                headers:{'Authorization': `Bearer ${jwt}`}
+        if (Object.keys(body).length > 0) {
+            API.put('/user/change', body, {
+                headers: {'Authorization': `Bearer ${jwt}`}
             },)
                 .then(response => {
                     history.push('/me')
@@ -55,10 +54,10 @@ export const UpdateUser = () => {
         <Container component='main' maxWidth='xs'>
             <CssBaseline/>
             <UpdateForm onSubmit={onSubmit} errors={errors}
-                      register={register} handleSubmit={handleSubmit}
-                      handleCloseSnackBar={handleClose} isSnackBarOpen={alertOpen}
-                      snackBarKey={"update user error"} snackBarMessage={"Error while updatinguser data"}
-                      updating={updating} password={password}/>
+                        register={register} handleSubmit={handleSubmit}
+                        handleCloseSnackBar={handleClose} isSnackBarOpen={alertOpen}
+                        snackBarKey={"update user error"} snackBarMessage={"Error while updatinguser data"}
+                        updating={updating} password={password}/>
         </Container>
     )
 }

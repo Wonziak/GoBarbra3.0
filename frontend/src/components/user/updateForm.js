@@ -1,29 +1,28 @@
 import React from 'react';
-import { AccountCircle as AccountCircleIcon } from '@material-ui/icons';
-import {Link} from 'react-router-dom'
+import {AccountCircle as AccountCircleIcon} from '@material-ui/icons';
 import {
     Avatar,
-    Grid,
     Button,
     Typography,
 } from '@material-ui/core';
-import { useStyles } from './styles';
+import {useStyles} from './styles';
 import TextField from "@material-ui/core/TextField";
-import * as routes from '../../routing/routes'
 import {useStylesBasic} from "../../pages/styles";
 import {ErrorSnackBar} from "../errorSnackBar";
 
 
-const UpdateForm = ({onSubmit,register, handleSubmit, errors,handleCloseSnackBar,
-                          isSnackBarOpen, snackBarKey, snackBarMessage, registering, password, edit}) => {
+const UpdateForm = ({
+                        onSubmit, register, handleSubmit, errors, handleCloseSnackBar,
+                        isSnackBarOpen, snackBarKey, snackBarMessage, registering, password, edit
+                    }) => {
 
     const classes = useStyles();
     const basicClasses = useStylesBasic();
     return (
         <>
             <div className={basicClasses.paper}>
-                <Avatar className={registering? classes.animateAvatar:classes.avatar}>
-                    <AccountCircleIcon style={{ fontSize: 45 }} />
+                <Avatar className={registering ? classes.animateAvatar : classes.avatar}>
+                    <AccountCircleIcon style={{fontSize: 45}}/>
                 </Avatar>
 
                 <Typography component='h1' variant='h4'>
@@ -120,7 +119,7 @@ const UpdateForm = ({onSubmit,register, handleSubmit, errors,handleCloseSnackBar
                         disabled={!!errors.username || !!errors.email || !!errors.password || !!errors.passwordRepeat || registering}
                         className={basicClasses.submit}
                     >
-                        Sign On
+                       Update
                     </Button>
                 </form>
             </div>
