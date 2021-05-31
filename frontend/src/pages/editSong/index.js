@@ -7,11 +7,13 @@ import {useForm} from "react-hook-form";
 import {SongForm} from "../../components/song/songForm";
 import Cookies from "js-cookie";
 import API from "../../services/api";
+import {useLocation} from "react-router-dom";
 
 
-export const NewSong = () => {
+export const EditSong = () => {
     const history = useHistory()
     const [alertOpen, setAlertOpen] = useState(false);
+    const {state} = useLocation();
     const [adding,setAdding] = useState(false);
     const handleClose = () => {
         setAlertOpen(false);
@@ -20,8 +22,8 @@ export const NewSong = () => {
         mode: 'onChange',
         reValidateMode: 'onChange',
         defaultValues: {
-            text: '',
-            language: '',
+            text: state.song.text||'',
+            language: state.song.language||'',
         },
     });
 
@@ -29,7 +31,7 @@ export const NewSong = () => {
         console.log(data)
         setAdding(true);
         let jwt = Cookies.get('jwt');
-        API.post('/song', {
+        API.put(`/song/${state.song.id}`, {
             text: data.text,
             language: data.language
         },{
@@ -40,7 +42,6 @@ export const NewSong = () => {
             })
             .catch(errInfo => {
                 console.log(errInfo)
-                setAdding(false);
             })
     };
 
@@ -50,7 +51,8 @@ export const NewSong = () => {
             <SongForm onSubmit={onSubmit} errors={errors}
                       register={register} handleSubmit={handleSubmit}
                       handleCloseSnackBar={handleClose} isSnackBarOpen={alertOpen}
-                      snackBarKey={"add song error"} snackBarMessage={"Error while adding new song"} adding={adding}/>
+                      snackBarKey={"edit song error"} snackBarMessage={"Error while editing song"}
+                      edit={true} adding={adding}/>
         </Container>
     )
 }

@@ -1,7 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import background from "../img/notes-wallpaper.jpg";
-const emeraldGreenColor = '#62c370';
-const emeraldGreenColorOpacity = "rgba(98,195,112,0.5)";
+import {navBarGrey, borderGrey, orangeColor,} from '../pageStyle/colors'
 const drawerWidth = 240;
 
 export const useStyles = makeStyles((theme) => ({
@@ -28,6 +27,9 @@ export const useStyles = makeStyles((theme) => ({
     },
     menuButton: {
         marginRight: theme.spacing(2),
+        '&:hover':{
+            color: orangeColor
+        }
     },
     hide: {
         display: 'none',
@@ -40,6 +42,9 @@ export const useStyles = makeStyles((theme) => ({
     loginButton: {
         textAlign: "end",
         flexGrow: 1,
+        '&:hover > span > a':{
+            color: orangeColor
+        }
     },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
@@ -57,7 +62,7 @@ export const useStyles = makeStyles((theme) => ({
         }),
     },
     toolBar: {
-        background: emeraldGreenColor,
+        background: navBarGrey,
     },
     logo:{
         display: "block",
@@ -76,7 +81,7 @@ export const useStyles = makeStyles((theme) => ({
     },
 
     divider:{
-        backgroundColor: `${emeraldGreenColorOpacity}`
+        backgroundColor: `${borderGrey}`
     },
     drawer: {
         width: drawerWidth,
@@ -86,7 +91,7 @@ export const useStyles = makeStyles((theme) => ({
     drawerOpen: {
         backgroundColor: "rgba(255,255,255,0.7)",
         width: drawerWidth,
-        borderRight: `1px solid ${emeraldGreenColorOpacity}`,
+        borderRight: `1px solid ${borderGrey}`,
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -97,7 +102,7 @@ export const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        borderRight: `1px solid ${emeraldGreenColorOpacity}`,
+        borderRight: `1px solid ${borderGrey}`,
         overflowX: 'hidden',
         width: theme.spacing(7) + 1,
         [theme.breakpoints.up('sm')]: {
@@ -114,6 +119,6 @@ export const useStyles = makeStyles((theme) => ({
     },
     content: {
         flexGrow: 1,
-        padding: theme.spacing(3),
+        padding: theme.spacing(1),
     },
 }));

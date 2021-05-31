@@ -1,91 +1,40 @@
 
 import { makeStyles } from '@material-ui/core/styles';
-import {paperBackGroundWhite, mingColor, emeraldGreenColorOpacity, emeraldGreenColor, dartmouthGreenColor} from '../../pageStyle/style'
+import {textGrey, navBarGrey} from '../../pageStyle/colors'
 
 
 
 export const useStyles = makeStyles(theme => {
     return {
-        paper: {
-            backgroundColor: `${paperBackGroundWhite}`,
-            margin: theme.spacing(4, 0),
-            display: 'flex',
-            color: `${mingColor}`,
-            flexDirection: 'column',
-            alignItems: 'center',
-            border: `1px solid ${emeraldGreenColorOpacity}`,
-            boxShadow: ` 1px 1px 4px ${emeraldGreenColorOpacity}`,
-            borderRadius: '2rem',
-            padding: '1.5rem 2.5rem',
-
-        },
-
         avatar: {
             margin: theme.spacing(3),
-            backgroundColor: emeraldGreenColor,
+            backgroundColor: navBarGrey,
             fontSize: 50,
         },
         animateAvatar:{
             margin: theme.spacing(3),
-            backgroundColor: emeraldGreenColor,
+            backgroundColor: navBarGrey,
             fontSize: 50,
             animation: `$colorChange 3000ms ${theme.transitions.easing.easeInOut}`,
             animationIterationCount: 'infinite'
         },
         "@keyframes colorChange": {
             "0%": {
-                backgroundColor: emeraldGreenColor,
+                backgroundColor: navBarGrey,
                 transform:"rotateY(0deg)"
             },
 
             "50%": {
-                backgroundColor: mingColor,
+                backgroundColor: textGrey,
             },
             "100%": {
-                backgroundColor: emeraldGreenColor,
+                backgroundColor: navBarGrey,
                 transform: "rotateY(360deg)"
             }
         },
-        form: {
-            marginTop: theme.spacing(4),
-            width: '100%',
-        },
-        submit: {
-            margin: theme.spacing(3, 0, 2),
-            backgroundColor: emeraldGreenColor,
-            color: 'white',
-            padding: '50 50',
-        },
         link: {
-            color: mingColor,
+            color: textGrey,
             textDecoration: 'none !important',
         },
-        error: {
-            color: 'red',
-        },
-        textField: {
-            backgroundColor: "#fff",
-            '& label.Mui-focused': {
-                color: mingColor,
-            },
-            '& .MuiInput-underline:after': {
-                borderBottomColor: dartmouthGreenColor,
-            },
-            '&$checked': {
-                color: '#3D70B2',
-            },
-            '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                    borderColor: dartmouthGreenColor,
-                },
-                '&:hover fieldset': {
-                    borderColor: emeraldGreenColor,
-                },
-                '&.Mui-focused fieldset': {
-                    borderColor: mingColor,
-                }
-            }
-        },
-
     };
 });
