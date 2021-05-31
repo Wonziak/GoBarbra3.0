@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends
 from passlib.hash import bcrypt
 from backend.app.middleware.jwt_authenticate import authenticate_and_generate_token
 from backend.app.middleware.user_authentication import get_current_user
-from backend.app.services.user import delete_user, update_user_data
+from backend.app.services.userService import delete_user, update_user_data
 
 router = APIRouter(tags=['User'])
 

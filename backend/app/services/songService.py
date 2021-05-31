@@ -4,7 +4,7 @@ from fastapi import HTTPException
 from fastapi.responses import StreamingResponse
 from backend.app.models.song import Song, Song_Pydantic, SongIn_Pydantic
 from backend.app.models.user import User_Pydantic
-from backend.app.services.user import change_songs_count
+from backend.app.services.userService import change_songs_count
 from tortoise.contrib.pydantic import pydantic_queryset_creator
 import os
 import datetime

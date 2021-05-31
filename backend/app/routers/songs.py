@@ -1,6 +1,6 @@
 from backend.app.models.song import SongIn_Pydantic
 from backend.app.models.user import User_Pydantic
-from backend.app.services.song import song_generator, get_song_from_id, remove_song, add_song_to_db, update_song, \
+from backend.app.services.songService import song_generator, get_song_from_id, remove_song, add_song_to_db, update_song, \
     get_users_songs
 from fastapi import APIRouter, Depends
 from backend.app.routers.users import get_current_user
