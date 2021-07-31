@@ -5,7 +5,6 @@ from backend.app.routers import songs, users
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.settings import postgres_user, postgres_password, get_ip
 
-
 def connect_to_db():
     register_tortoise(
         app,
